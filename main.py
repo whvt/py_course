@@ -54,9 +54,7 @@ def hw():
     country = "Belarus"
 
     print(
-        "Привет, {} {}! Добро пожаловать в {}, {}".format(
-            namesurname[0], namesurname[1], city, country
-        )
+        f"Привет, {namesurname[0]} {namesurname[1]}! Добро пожаловать в {city}, {country}"
     )
 
     # Дан список ["I", "love", "arrays", "they", "are", "my", "favorite"]
