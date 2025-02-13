@@ -4,7 +4,7 @@ os.system("clear")
 
 
 def hwTime(n):
-    if type(n) is int and n >= 0:
+    if isinstance(n, int) and n >= 0:
         hours = (n // 60) % 24
         rem_minutes = n % 60
 
@@ -22,7 +22,7 @@ def hwLevelUp(exp, threshold, reward):
 
     res = True
 
-    if type(exp) is int and type(threshold) is int and type(reward) is int:
+    if isinstance(exp, int) and isinstance(threshold, int) and isinstance(reward, int):
         total_exp = exp + reward
         if total_exp >= threshold:
             res = True
@@ -35,7 +35,7 @@ def hwLevelUp(exp, threshold, reward):
 
 
 def hwTimeConverter(time24):
-    if type(time24) is str and len(time24) == 5:
+    if isinstance(time24, str) and len(time24) == 5:
         hours, minutes = int(time24.split(":")[0]), int(time24.split(":")[1])
         am_pm = "a.m." if hours < 12 else "p.m."
         hours = hours % 12
