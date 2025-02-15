@@ -7,14 +7,15 @@ os.system("clear")
 def BullsCows(number, attempt):
     bulls = 0
     cows = 0
-
-    for i in range(len(attempt)):
+    number = str(number)
+    for i in range(4):  # range(len(attempt))
         if number[i] == attempt[i]:
             bulls += 1
         elif number[i] in attempt:
             cows += 1
 
-    cows -= bulls
+    if cows != bulls:
+        cows -= bulls
     return bulls, cows
 
 
@@ -28,25 +29,35 @@ def hwPyramid(symbol, rows):
 
 
 def hwStatues(sizes):
-    if not isinstance(sizes, list):
-        print("Проверь ввод!")
-    else:
-        cntr = 0
-        sizes.sort()
-        for i in range(len(sizes) - 1):
-            delta = sizes[i + 1] - sizes[i]
-            if delta > 1:
-                cntr += delta - 1
-        print(f"Для задачи со статуэтками ответ: {cntr}")
+    # if not isinstance(sizes, list):
+    #     print("Проверь ввод!")
+    # else:
+    #     cntr = 0
+    #     sizes.sort()
+    #     for i in range(len(sizes) - 1):
+    #         delta = sizes[i + 1] - sizes[i]
+    #         if delta > 1:
+    #             cntr += delta - 1
+
+    #     print(f"Для задачи со статуэтками ответ: {cntr}")
+    sizes.sort()
+    statues = []
+    for size in range(sizes[0], sizes[-1] + 1):
+        if size not in sizes:
+            statues.append(size)
+    print(f"Статуи: {statues}, кол-во: {len(statues)}")
 
 
 def hwGame():
     cntr = 0
 
-    digits = random.sample("123456789", 4)
-    number = "".join(digits)
+    digits = random.sample("1234567890", 4)
+
+    number = int("".join(digits))
+    if number < 1000:
+        number *= 10
     print("чшшш", "-", number)
-    input("Угадай число!")
+    print("Угадай число!")
     while True:
         attempt = input("Давай попытку ->")
         if len(attempt) != 4 or not attempt.isdigit() or len(set(attempt)) != 4:
