@@ -8,12 +8,10 @@ def BullsCows(number, attempt):
     bulls = 0
     cows = 0
 
-    for i in range(4):
+    for i in range(len(attempt)):
         if number[i] == attempt[i]:
             bulls += 1
-
-    for j in attempt:
-        if j in number:
+        elif number[i] in attempt:
             cows += 1
 
     cows -= bulls
