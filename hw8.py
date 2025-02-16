@@ -8,7 +8,7 @@ def BullsCows(number, attempt):
     bulls = 0
     cows = 0
     number = str(number)
-    for i in range(4):  # range(len(attempt))
+    for i, _ in enumerate(attempt):  # range(len(attempt))
         if number[i] == attempt[i]:
             bulls += 1
         elif number[i] in attempt:
@@ -29,17 +29,6 @@ def hwPyramid(symbol, rows):
 
 
 def hwStatues(sizes):
-    # if not isinstance(sizes, list):
-    #     print("Проверь ввод!")
-    # else:
-    #     cntr = 0
-    #     sizes.sort()
-    #     for i in range(len(sizes) - 1):
-    #         delta = sizes[i + 1] - sizes[i]
-    #         if delta > 1:
-    #             cntr += delta - 1
-
-    #     print(f"Для задачи со статуэтками ответ: {cntr}")
     sizes.sort()
     statues = []
     for size in range(sizes[0], sizes[-1] + 1):
