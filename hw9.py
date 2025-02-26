@@ -43,28 +43,3 @@ def is_valid(card):
         checksum += digit
         is_second = not is_second
     return checksum % 10 == 0
-
-
-print("Sequense func ans:", sequence([1, 2, 3]))
-print("Sequense func ans:", sequence([1, 2, 3]))
-print("Sequense func ans:", sequence([1, 3, 2]))
-print("Sequense func ans:", sequence([1, 2, 1, 2]))
-print("Sequense func ans:", sequence([1, 3, 2, 1]))
-print("Sequense func ans:", sequence([1, 2, 3, 4, 5, 3, 5, 6]))
-print("Sequense func ans:", sequence([40, 50, 60, 10, 20, 30]))
-print("Sequense func ans:", sequence([40, 50, 60, 80, 10, 90]))
-##############
-print("is_opposite func ans: ", is_opposite(10, 6))
-print("is_opposite func ans: ", is_opposite(11, 6))
-print("is_opposite func ans: ", is_opposite(10, 4))
-print("is_opposite func ans: ", is_opposite(10, 2))
-print("is_opposite func ans: ", is_opposite(12, 2))
-##############
-print("is_valid func ans: ", is_valid(123))
-print("is_valid func ans: ", is_valid(4561261212345464))
-print("is_valid func ans: ", is_valid(4561261212345467))
-print("is_valid func ans: ", is_valid(378282246310005))
-print("is_valid func ans: ", is_valid(""))
-print("is_valid func ans: ", is_valid(56105911231018250))
-print("is_valid func ans: ", is_valid(6011000990139424))
-print("is_valid func ans: ", is_valid(5105105105105100))
