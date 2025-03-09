@@ -1,0 +1,82 @@
+class Book:
+    def __init__(self, book_name, author, num_pages, isbn):
+        self.book_name = book_name
+        self.author = author
+        self.num_pages = num_pages
+        self.isbn = isbn
+        self.reserved_by = None
+        self.checked_out_by = None
+
+    def reserve(self, reader):
+        if self.reserved_by is None and self.checked_out_by is None:
+            self.reserved_by = reader
+            return True
+        return False
+
+    def cancel_reserve(self, reader):
+        if self.reserved_by == reader:
+            self.reserved_by = None
+            return True
+        return False
+
+    def get_book(self, reader):
+        if self.reserved_by == reader and self.checked_out_by is None:
+            self.reserved_by = None
+            self.checked_out_by = reader
+            return True
+        return False
+
+    def return_book(self, reader):
+        if self.checked_out_by == reader:
+            self.checked_out_by = None
+            return True
+        return False
+
+
+class Reader:
+    def __init__(self, name):
+        self.name = name
+
+    def reserve_book(self, book):
+        if book.reserve(self):
+            print(f"{self.name} reserved {book.book_name}.")
+        else:
+            print(f"{self.name} cannot reserve {book.book_name}.")
+
+    def cancel_reserve(self, book):
+        if book.cancel_reserve(self):
+            print(f"{self.name} canceled reservation for {book.book_name}.")
+        else:
+            print(f"{self.name} cannot cancel reservation for {book.book_name}.")
+
+    def get_book(self, book):
+        if book.get_book(self):
+            print(f"{self.name} checked out {book.book_name}.")
+        else:
+            print(f"{self.name} cannot check out {book.book_name}.")
+
+    def return_book(self, book):
+        if book.return_book(self):
+            print(f"{self.name} returned {book.book_name}.")
+        else:
+            print(f"{self.name} cannot return {book.book_name}.")
+
+
+book1 = Book(
+    book_name="The Hobbit", author="J.R.R. Tolkien", num_pages=400, isbn="0006754023"
+)
+book2 = Book(book_name="MuMu", author="Ivan Turgenev", num_pages=224, isbn="0006194023")
+vasya = Reader("Vasya")
+petya = Reader("Petya")
+
+vasya.reserve_book(book1)
+petya.reserve_book(book1)
+vasya.cancel_reserve(book1)
+
+petya.reserve_book(book1)
+vasya.get_book(book2)
+petya.get_book(book2)
+vasya.return_book(book1)
+petya.return_book(book1)
+
+vasya.get_book(book1)
