@@ -53,8 +53,8 @@ deck = CardsDeck()
 deck.shuffle()
 
 try:
-    card_number = int(input("Pick your card (1-54): "))
-    card = deck.get(card_number)
+    user_card_number = int(input("Pick your card (1-54): "))
+    card = deck.get(user_card_number)
     print(f"Your card is: {card}")
 except ValueError as e:
     print(e)
