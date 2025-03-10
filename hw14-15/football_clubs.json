@@ -1,0 +1,27 @@
+[
+  {
+    "name": "FCB",
+    "country": "Spain",
+    "total_wins": 55
+  },
+  {
+    "name": "Manchester United",
+    "country": "England",
+    "total_wins": 68
+  },
+  {
+    "name": "Bayern Munich",
+    "country": "Germany",
+    "total_wins": 75
+  },
+  {
+    "name": "Juventus",
+    "country": "Italy",
+    "total_wins": 62
+  },
+  {
+    "name": "PSG",
+    "country": "France",
+    "total_wins": 50
+  }
+]
