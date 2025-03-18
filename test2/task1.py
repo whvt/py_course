@@ -1,3 +1,10 @@
+import logging
+
+
+logging.basicConfig(level=logging.INFO, format="%(message)s")
+logger = logging.getLogger()
+
+
 class StringProcessor:
     def __init__(self, input_string):
         self.input_string = input_string
@@ -30,10 +37,10 @@ line = StringProcessor(
     """Neque porro quisquam est qui dolorem
     ipsum quia dolor sit amet, consectetur, adipisci velit."""
 )
-print("First symbol:", line.get_first())
-print("Last symbol:", line.get_last())
-print("Third from start:", line.get_third())
-print("Third from end:", line.get_third_from_end_character())
-print("Len:", line.get_length())
-print("Reversed:", line.reverse_string())
-print("First five chars:", line.get_first_eight_characters())
+logger.info("First symbol: %s", line.get_first())
+logger.info("Last symbol: %s", line.get_last())
+logger.info("Third from start: %s", line.get_third())
+logger.info("Third from end: %s", line.get_third_from_end_character())
+logger.info("Len: %d", line.get_length())
+logger.info("Reversed: %s", line.reverse_string())
+logger.info("First eight chars: %s", line.get_first_eight_characters())

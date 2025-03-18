@@ -1,3 +1,10 @@
+import logging
+
+
+logging.basicConfig(level=logging.INFO, format="%(message)s")
+logger = logging.getLogger()
+
+
 class ProcessNum:
     def __init__(self, input_num):
         self.input_num = input_num
@@ -12,5 +19,5 @@ class ProcessNum:
 
 reference = ProcessNum(12)
 
-print("References square is:", reference.get_square())
-print("Given number is odd? ->", reference.is_odd())
+logger.info("Reference's square is: %s", reference.get_square())
+logger.info("Given number is odd? -> %s", reference.is_odd())
