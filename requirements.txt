@@ -3,3 +3,6 @@ pycodestyle
 mypy
 ruff
 pylint
+pytest~=8.3.4
+PyYAML~=6.0.2
+python-dateutil~=2.9.0.post0
