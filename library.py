@@ -1,3 +1,9 @@
+import logging
+
+logging.basicConfig(level=logging.INFO, format="%(message)s")
+logger = logging.getLogger()
+
+
 class Book:
     def __init__(self, book_name, author, num_pages, isbn):
         self.book_name = book_name
@@ -39,27 +45,29 @@ class Reader:
 
     def reserve_book(self, book):
         if book.reserve(self):
-            print(f"{self.name} reserved {book.book_name}.")
+            logger.info("%s reserved %s.", self.name, book.book_name)
         else:
-            print(f"{self.name} cannot reserve {book.book_name}.")
+            logger.info("%s cannot reserve %s.", self.name, book.book_name)
 
     def cancel_reserve(self, book):
         if book.cancel_reserve(self):
-            print(f"{self.name} canceled reservation for {book.book_name}.")
+            logger.info("%s canceled reservation for %s.", self.name, book.book_name)
         else:
-            print(f"{self.name} cannot cancel reservation for {book.book_name}.")
+            logger.info(
+                "%s cannot cancel reservation for %s.", self.name, book.book_name
+            )
 
     def get_book(self, book):
         if book.get_book(self):
-            print(f"{self.name} checked out {book.book_name}.")
+            logger.info("%s checked out %s.", self.name, book.book_name)
         else:
-            print(f"{self.name} cannot check out {book.book_name}.")
+            logger.info("%s cannot check out %s.", self.name, book.book_name)
 
     def return_book(self, book):
         if book.return_book(self):
-            print(f"{self.name} returned {book.book_name}.")
+            logger.info("%s returned %s.", self.name, book.book_name)
         else:
-            print(f"{self.name} cannot return {book.book_name}.")
+            logger.info("%s cannot return %s.", self.name, book.book_name)
 
 
 book1 = Book(
