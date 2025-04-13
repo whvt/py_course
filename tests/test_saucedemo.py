@@ -11,6 +11,14 @@ driver.get("https://www.saucedemo.com/")
 username = driver.find_element(By.ID, "user-name")
 password = driver.find_element(By.ID, "password")
 login_button = driver.find_element(By.ID, "login-button")
+items = [
+    "add-to-cart-sauce-labs-backpack",
+    "add-to-cart-sauce-labs-bike-light",
+    "add-to-cart-sauce-labs-bolt-t-shirt",
+    "add-to-cart-sauce-labs-fleece-jacket",
+    "add-to-cart-sauce-labs-onesie",
+    "add-to-cart-test.allthethings()-t-shirt-(red)",
+]
 
 time.sleep(1)
 username.send_keys("standard_user")
@@ -20,34 +28,14 @@ time.sleep(1)
 login_button.click()
 
 
-add_to_cart_button = driver.find_element(By.ID, "add-to-cart-sauce-labs-backpack")
-time.sleep(1)
-add_to_cart_button.click()
+def clicker():
+    for item in items:
+        add_to_cart_button = driver.find_element(By.ID, item)
+        time.sleep(1)
+        add_to_cart_button.click()
 
 
-add_to_cart_button = driver.find_element(By.ID, "add-to-cart-sauce-labs-bike-light")
-time.sleep(1)
-add_to_cart_button.click()
-
-add_to_cart_button = driver.find_element(By.ID, "add-to-cart-sauce-labs-bolt-t-shirt")
-time.sleep(1)
-add_to_cart_button.click()
-
-add_to_cart_button = driver.find_element(By.ID, "add-to-cart-sauce-labs-fleece-jacket")
-time.sleep(1)
-add_to_cart_button.click()
-
-
-add_to_cart_button = driver.find_element(By.ID, "add-to-cart-sauce-labs-onesie")
-time.sleep(1)
-add_to_cart_button.click()
-
-add_to_cart_button = driver.find_element(
-    By.ID, "add-to-cart-test.allthethings()-t-shirt-(red)"
-)
-time.sleep(1)
-add_to_cart_button.click()
-
+clicker()
 
 cart_button = driver.find_element(By.CLASS_NAME, "shopping_cart_link")
 time.sleep(1)
