@@ -68,4 +68,3 @@ class Reader:
             logger.info("%s returned %s.", self.name, book.book_name)
         else:
             logger.info("%s cannot return %s.", self.name, book.book_name)
-
