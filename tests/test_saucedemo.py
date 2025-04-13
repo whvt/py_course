@@ -11,7 +11,7 @@ driver.get("https://www.saucedemo.com/")
 username = driver.find_element(By.ID, "user-name")
 password = driver.find_element(By.ID, "password")
 login_button = driver.find_element(By.ID, "login-button")
-items = [
+shopping_items = [
     "add-to-cart-sauce-labs-backpack",
     "add-to-cart-sauce-labs-bike-light",
     "add-to-cart-sauce-labs-bolt-t-shirt",
@@ -19,6 +19,8 @@ items = [
     "add-to-cart-sauce-labs-onesie",
     "add-to-cart-test.allthethings()-t-shirt-(red)",
 ]
+
+checkout_info = {"first-name": "John", "last-name": "Doe", "postal-code": "12345"}
 
 time.sleep(1)
 username.send_keys("standard_user")
@@ -29,7 +31,7 @@ login_button.click()
 
 
 def clicker():
-    for item in items:
+    for item in shopping_items:
         add_to_cart_button = driver.find_element(By.ID, item)
         time.sleep(1)
         add_to_cart_button.click()
@@ -47,17 +49,16 @@ time.sleep(1)
 checkout_button.click()
 
 
-first_name = driver.find_element(By.ID, "first-name")
-last_name = driver.find_element(By.ID, "last-name")
-postal_code = driver.find_element(By.ID, "postal-code")
-continue_button = driver.find_element(By.ID, "continue")
+def prompter():
+    for key, value in checkout_info.items():
+        input_field = driver.find_element(By.ID, key)
+        input_field.send_keys(value)
+        time.sleep(1)
 
-first_name.send_keys("John")
-time.sleep(1)
-last_name.send_keys("Doe")
-time.sleep(1)
-postal_code.send_keys("12345")
-time.sleep(1)
+
+prompter()
+
+continue_button = driver.find_element(By.ID, "continue")
 continue_button.click()
 
 
