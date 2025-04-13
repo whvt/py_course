@@ -69,22 +69,3 @@ class Reader:
         else:
             logger.info("%s cannot return %s.", self.name, book.book_name)
 
-
-book1 = Book(
-    book_name="The Hobbit", author="J.R.R. Tolkien", num_pages=400, isbn="0006754023"
-)
-book2 = Book(book_name="MuMu", author="Ivan Turgenev", num_pages=224, isbn="0006194023")
-vasya = Reader("Vasya")
-petya = Reader("Petya")
-
-vasya.reserve_book(book1)
-petya.reserve_book(book1)
-vasya.cancel_reserve(book1)
-
-petya.reserve_book(book1)
-vasya.get_book(book2)
-petya.get_book(book2)
-vasya.return_book(book1)
-petya.return_book(book1)
-
-vasya.get_book(book1)
