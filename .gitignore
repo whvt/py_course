@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 .DS_Store
 # Environments
+!HW28/templates/index.html
 venv/
 *.txt
 *.json
