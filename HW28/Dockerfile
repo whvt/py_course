@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 
-RUN pip install --no-cache-dir flask
+RUN pip install --no-cache-dir -r dependancies.txt
 
 
 EXPOSE 5001
