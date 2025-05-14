@@ -1,8 +1,8 @@
 import requests
 import jsonschema
 import pytest
-from HW27.test_data import booking_data, expected_schema, generate_booking_dates
-from HW27.helpers import create_booking, update_booking, delete_booking
+from test_data import booking_data, expected_schema, generate_booking_dates
+from helpers import create_booking, update_booking, delete_booking
 
 
 @pytest.fixture

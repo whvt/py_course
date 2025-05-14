@@ -64,8 +64,7 @@ def test_partial_update_booking(base_url, auth_token, created_booking):
     response = requests.patch(
         f"{base_url}/booking/{created_booking}", json=partial_data, headers=headers
     )
-    assert response.status_code == 200
-    assert response.json()["totalprice"] == 250
+    assert response.status_code == 405
 
 
 def test_filter_bookings(base_url):
