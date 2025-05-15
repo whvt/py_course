@@ -1,20 +1,22 @@
 FROM selenium/standalone-chrome
 
-LABEL authors="nikitabulankov"
+USER root
 
-ENV PYTHONPATH="/var/lib/jenkins/workspace/HW31"
+LABEL authors="nikitabulankov"
 
 USER root
 
-WORKDIR /var/lib/jenkins/workspace/HW31
+WORKDIR /app
 
-COPY ./requirements.txt /var/lib/jenkins/workspace/HW31/
+COPY requirements.txt .
 
 RUN sudo apt-get update && apt-get install -y python3.10 python3-pip
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY ./ /var/lib/jenkins/workspace/HW31/
+COPY . .
 
 RUN mkdir -p /app/allure-results
 
-CMD ["pytest", "-v", "--alluredir=allure-results"]
+EXPOSE 5050
+
+CMD ["pytest", "-s", "-v", "HW27/", "--alluredir=allure-results"]
